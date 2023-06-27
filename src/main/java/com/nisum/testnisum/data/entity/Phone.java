@@ -16,7 +16,7 @@ public class Phone {
     @Column(name = "user_id")
     private UUID userId;
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String number;
     @Column(name = "city_code")
