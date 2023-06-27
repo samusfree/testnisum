@@ -13,7 +13,7 @@ public class SwaggerConfig {
         String[] paths = { "/api/v1/users/**" };
         return GroupedOpenApi.builder().
                 group("users")
-                .addOpenApiCustomizer(openApi -> openApi.info(new Info().title("Tweets API").version(appVersion)))
+                .addOpenApiCustomizer(openApi -> openApi.info(new Info().title("Users API").version(appVersion)))
                 .pathsToMatch(paths)
                 .build();
     }
