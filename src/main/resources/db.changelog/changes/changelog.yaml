@@ -1,0 +1,109 @@
+databaseChangeLog:
+  - changeSet:
+      id: 'nisumv1'
+      author: 'sagonzales89@gmail.com'
+      comment: 'Initialize database'
+      changes:
+        - tagDatabase:
+            tag: 1.0.0
+        - createTable:
+            tableName: phones
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_phones
+              - column:
+                  name: users_id
+                  type: uuid
+                  constraints:
+                    nullable: false
+              - column:
+                  name: number
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: city_code
+                  type: varchar(5)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country_code
+                  type: varchar(5)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    generated: always
+                    defaultValueComputed: random_uuid()
+                    defaultOnNull: true
+                    generationType: ALWAYS
+              - column:
+                  name: name
+                  type: VARCHAR(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: VARCHAR(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: VARCHAR(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_login
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: true
+              - column:
+                  name: token
+                  type: VARCHAR(1000)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: active
+                  type: boolean
+                  constraints:
+                    nullable: false
+        - addUniqueConstraint:
+            columnNames: email
+            constraintName: uq_users_email
+            tableName: users
+        - addForeignKeyConstraint:
+            baseColumnNames: users_id
+            baseTableName: phones
+            constraintName: fk_phones_users_id
+            referencedColumnNames: id
+            referencedTableName: users

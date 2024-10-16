@@ -1,0 +1,433 @@
+{
+	"info": {
+		"_postman_id": "22b6735b-6e4d-4e85-9495-1fd60ae6b937",
+		"name": "NIsum",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "502300"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Samuel Gonzales\",\r\n    \"password\": \"Samus123\",\r\n    \"email\": \"sagonzale22222s@gmail.com\",\r\n    \"phones\": [\r\n        {\r\n            \"number\":\"5554\",\r\n            \"cityCode\":\"dsds\",\r\n            \"countryCode\": \"1234\"\r\n        }\r\n    ]\r\n}\r\n"
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Samuel Gonzales\",\r\n    \"password\": \"Samus123\",\r\n    \"email\": \"sagonzale22222ss@gmail.com\",\r\n    \"phones\": [\r\n        {\r\n            \"number\":\"5554\",\r\n            \"cityCode\":\"dsds\",\r\n            \"countryCode\": \"1234\"\r\n        }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"f987f9ee-0ea6-4251-8138-b04e8c0cdcf9\",\n    \"name\": \"Samuel Gonzales\",\n    \"email\": \"sagonzale22222ss@gmail.com\",\n    \"password\": \"Samus123\",\n    \"created\": \"2023-06-27\",\n    \"modified\": null,\n    \"lastLogin\": \"2023-06-27\",\n    \"token\": \"eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJOaXN1bUpXVCIsInN1YiI6InNhZ29uemFsZTIyMjIyc3NAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sIm5hbWUiOiJTYW11ZWwgR29uemFsZXMiLCJpYXQiOjE2ODc4NTE3NzcsImV4cCI6MTY4Nzg1MjM3N30.lr1UMTSX1TecI7seJCax9VvbB8wJs6jHhzv8fk5A3KXX6B3Zis1VQOSU0tBA56iuvnMlYc3mbzgT-VD9n7pZMA\",\n    \"active\": true,\n    \"phones\": [\n        {\n            \"number\": \"5554\",\n            \"cityCode\": \"dsds\",\n            \"countryCode\": \"1234\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Bad email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Samuel Gonzales\",\r\n    \"password\": \"Samus123\",\r\n    \"email\": \"sagonzale22222ssgmail.com\",\r\n    \"phones\": [\r\n        {\r\n            \"number\":\"5554\",\r\n            \"cityCode\":\"dsds\",\r\n            \"countryCode\": \"1234\"\r\n        }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.nisum.testnisum.dto.UserDTO> com.nisum.testnisum.rest.api.UserAPI.createUser(com.nisum.testnisum.dto.UserRequestDTO): [Field error in object 'userRequestDTO' on field 'email': rejected value [sagonzale22222ssgmail.com]; codes [Email.userRequestDTO.email,Email.email,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [userRequestDTO.email,email]; arguments []; default message [email],[Ljakarta.validation.constraints.Pattern$Flag;@7a6d4dc1,.*]; default message [Email should be valid]] \",\n    \"detailedMessages\": {\n        \"email\": \"Email should be valid\"\n    }\n}"
+				},
+				{
+					"name": "Not Body",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Required request body is missing: public org.springframework.http.ResponseEntity<com.nisum.testnisum.dto.UserDTO> com.nisum.testnisum.rest.api.UserAPI.createUser(com.nisum.testnisum.dto.UserRequestDTO)\",\n    \"detailedMessages\": null\n}"
+				},
+				{
+					"name": "Conflict",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "Content-Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Samuel Gonzales\",\r\n    \"password\": \"Samus123\",\r\n    \"email\": \"sagonzale22222s@gmail.com\",\r\n    \"phones\": [\r\n        {\r\n            \"number\":\"5554\",\r\n            \"cityCode\":\"dsds\",\r\n            \"countryCode\": \"1234\"\r\n        }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"The email sagonzale22222s@gmail.com is already registered\",\n    \"detailedMessages\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "List Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJOaXN1bUpXVCIsInN1YiI6InNhZ29uemFsZTIyMjIyc3NAZ21haWwuY29tIiwiaWF0IjoxNzI5MDU3MzM0LCJleHAiOjE3MjkxNDM3MzQsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdfQ.Pwq7A86Psa0wfjW_KuRkVqxwJnG_oZrPyQFh-SlbZKeI4Wtm53svGA3QLke7WZ4-lVTrpW02L9QxCwqbMFPL8A",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/v1/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJOaXN1bUpXVCIsInN1YiI6InNhZ29uemFsZTIyMjIyc3NAZ21haWwuY29tIiwiaWF0IjoxNzI5MDU3MzM0LCJleHAiOjE3MjkxNDM3MzQsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdfQ.Pwq7A86Psa0wfjW_KuRkVqxwJnG_oZrPyQFh-SlbZKeI4Wtm53svGA3QLke7WZ4-lVTrpW02L9QxCwqbMFPL8A",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 16 Oct 2024 06:00:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"a399b0c0-5bfb-48b0-80af-fa0580399fa7\",\n        \"name\": \"Samuel Gonzales\",\n        \"email\": \"sagonzale22222ss@gmail.com\",\n        \"password\": \"Samus123\",\n        \"created\": \"2024-10-16T00:42:14.063886\",\n        \"modified\": \"2024-10-16T00:42:14.063922\",\n        \"lastLogin\": null,\n        \"token\": \"eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJOaXN1bUpXVCIsInN1YiI6InNhZ29uemFsZTIyMjIyc3NAZ21haWwuY29tIiwiaWF0IjoxNzI5MDU3MzM0LCJleHAiOjE3MjkxNDM3MzQsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdfQ.Pwq7A86Psa0wfjW_KuRkVqxwJnG_oZrPyQFh-SlbZKeI4Wtm53svGA3QLke7WZ4-lVTrpW02L9QxCwqbMFPL8A\",\n        \"active\": false,\n        \"phones\": [\n            {\n                \"number\": \"5554\",\n                \"cityCode\": \"dsds\",\n                \"countryCode\": \"1234\"\n            }\n        ]\n    },\n    {\n        \"id\": \"c2c100d6-e231-4587-807d-eff323c03321\",\n        \"name\": \"Samuel Gonzales\",\n        \"email\": \"sagonzale22222s@gmail.com\",\n        \"password\": \"Samus123\",\n        \"created\": \"2024-10-16T00:59:50.444876\",\n        \"modified\": \"2024-10-16T00:59:50.444943\",\n        \"lastLogin\": \"2024-10-16T00:59:50.44493\",\n        \"token\": \"eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJOaXN1bUpXVCIsInN1YiI6InNhZ29uemFsZTIyMjIyc0BnbWFpbC5jb20iLCJpYXQiOjE3MjkwNTgzOTAsImV4cCI6MTcyOTE0NDc5MCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl19.KBAgNMt5lGaNNn_-VGzO2vZNO6posFuqxauPL7SesTs_ZIU1T9B6V_3kWUJ2ETym8YBd1AJh7hepDsFjwIqi3g\",\n        \"active\": false,\n        \"phones\": [\n            {\n                \"number\": \"5554\",\n                \"cityCode\": \"dsds\",\n                \"countryCode\": \"1234\"\n            }\n        ]\n    }\n]"
+				},
+				{
+					"name": "No Authorized",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "JSESSIONID=201C95B0A9B539A69DFEA3F8B309C618; Path=/; HttpOnly"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 16 Oct 2024 08:59:54 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
